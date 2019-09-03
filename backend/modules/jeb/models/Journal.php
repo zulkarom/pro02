@@ -91,6 +91,10 @@ class Journal extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Article::className(), ['journal_id' => 'id'])->orderBy('publish_number ASC');
     }
+	
+	public function publishYear(){
+		return date('Y', strtotime($this->published_at));
+	}
 
 	
 	

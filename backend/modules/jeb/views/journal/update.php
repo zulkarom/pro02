@@ -7,7 +7,6 @@ use yii\helpers\Html;
 
 $this->title = 'Volume ' . $model->volume . ' Issue ' . $model->issue;
 $this->params['breadcrumbs'][] = ['label' => 'Journals', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="journal-update">

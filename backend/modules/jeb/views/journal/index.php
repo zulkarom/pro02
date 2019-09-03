@@ -22,10 +22,18 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="box-header"></div>
 <div class="box-body"><?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 			'journal_name',
+			[
+				'label' => 'Year',
+				
+				'value' => function($model){
+					return $model->publishYear();
+				}
+			]
+            ,
 			[
 				'attribute' => 'volume',
 				'value' => function($model){
