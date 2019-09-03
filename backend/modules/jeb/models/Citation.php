@@ -35,7 +35,7 @@ class Citation
 		$name = "cite.bib"; 
 		
 $text = "@article{".$ref.",
-	title={".$model->title ."},
+	title={".$model->title_sc ."},
 	author={" . $authors . "},
 	journal={Journal of Entrepreneurship and Business},
 	volume={".$model->journal->volume ."},
