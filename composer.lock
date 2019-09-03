@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "182c076828608bf3cd3e269eb3354dad",
+    "content-hash": "5717d9646bc30f3ebb606c5fe6926202",
     "packages": [
         {
             "name": "2amigos/yii2-chartjs-widget",
@@ -188,12 +188,12 @@
             "version": "v2.4.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/almasaeed2010/AdminLTE.git",
+                "url": "https://github.com/ColorlibHQ/AdminLTE.git",
                 "reference": "b3acb63ac56b13eb45b36e628b384a9a2507b50e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/almasaeed2010/AdminLTE/zipball/b3acb63ac56b13eb45b36e628b384a9a2507b50e",
+                "url": "https://api.github.com/repos/ColorlibHQ/AdminLTE/zipball/b3acb63ac56b13eb45b36e628b384a9a2507b50e",
                 "reference": "b3acb63ac56b13eb45b36e628b384a9a2507b50e",
                 "shasum": ""
             },
@@ -227,11 +227,26 @@
             "time": "2018-02-04T12:54:57+00:00"
         },
         {
+            "name": "bower-asset/autosize",
+            "version": "4.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jackmoore/autosize.git",
+                "reference": "6ae70cd3d28888eb858eef1167e6ed75d25dff7f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jackmoore/autosize/zipball/6ae70cd3d28888eb858eef1167e6ed75d25dff7f",
+                "reference": "6ae70cd3d28888eb858eef1167e6ed75d25dff7f"
+            },
+            "type": "bower-asset"
+        },
+        {
             "name": "bower-asset/blueimp-canvas-to-blob",
             "version": "v3.14.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:blueimp/JavaScript-Canvas-to-Blob.git",
+                "url": "https://github.com/blueimp/JavaScript-Canvas-to-Blob.git",
                 "reference": "9f3deb2e710d39c72a988559609d9dc9a319de0b"
             },
             "dist": {
@@ -270,7 +285,7 @@
             "version": "v2.17.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:blueimp/Gallery.git",
+                "url": "https://github.com/blueimp/Gallery.git",
                 "reference": "8336bb5934cb623608808601129db3fbf9201a09"
             },
             "dist": {
@@ -300,7 +315,7 @@
             "version": "v3.11.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:blueimp/JavaScript-Templates.git",
+                "url": "https://github.com/blueimp/JavaScript-Templates.git",
                 "reference": "da7647cb93fff2030e73a701db22c66de76a9919"
             },
             "dist": {
@@ -376,7 +391,7 @@
             "version": "v1.3.6",
             "source": {
                 "type": "git",
-                "url": "git@github.com:bernii/gauge.js.git",
+                "url": "https://github.com/bernii/gauge.js.git",
                 "reference": "df79eb699ae33529509fee5e14914c4d4186b00f"
             },
             "dist": {
@@ -454,7 +469,7 @@
             "version": "v1.3.2",
             "source": {
                 "type": "git",
-                "url": "git@github.com:bestiejs/punycode.js.git",
+                "url": "https://github.com/bestiejs/punycode.js.git",
                 "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3"
             },
             "dist": {
@@ -819,6 +834,52 @@
                 "yii2-user"
             ],
             "time": "2018-04-03T12:24:41+00:00"
+        },
+        {
+            "name": "djabiev/yii2-autosize-textarea",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/djabiev/yii2-autosize-textarea.git",
+                "reference": "510e367d380ac988a279749811e4a4dd4485e5c4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/djabiev/yii2-autosize-textarea/zipball/510e367d380ac988a279749811e4a4dd4485e5c4",
+                "reference": "510e367d380ac988a279749811e4a4dd4485e5c4",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/autosize": "*",
+                "yiisoft/yii2": "~2"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "djabiev\\yii\\assets\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vladimir Djabiev",
+                    "role": "Developer",
+                    "email": "djabiev@gmail.com",
+                    "homepage": "https://github.com/djabiev"
+                }
+            ],
+            "description": "An Yii2 Textarea Autosize extension based on Jack Moore's javascript library.",
+            "homepage": "https://github.com/djabiev/yii2-autosize-textarea",
+            "keywords": [
+                "javascript",
+                "textarea autosize",
+                "yii2",
+                "yii2-autosize-textarea"
+            ],
+            "time": "2017-09-28T13:27:36+00:00"
         },
         {
             "name": "dmstr/yii2-adminlte-asset",
@@ -4795,6 +4856,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2017-06-30T09:13:00+00:00"
         },
         {
@@ -5917,7 +5979,8 @@
         "kartik-v/yii2-detail-view": 20,
         "mpdf/mpdf": 20,
         "kartik-v/yii2-checkbox-x": 20,
-        "glagola/yii2-gauge.js": 20
+        "glagola/yii2-gauge.js": 20,
+        "djabiev/yii2-autosize-textarea": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

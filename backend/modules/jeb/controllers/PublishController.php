@@ -12,9 +12,27 @@ use raoul2000\workflow\validation\WorkflowScenario;
 use common\models\Model;
 use backend\modules\jeb\models\ArticleAuthor;
 use common\models\Upload;
+use yii\filters\AccessControl;
 
 class PublishController extends \yii\web\Controller
 {
+	
+
+	public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+        ];
+    }
+
     public function actionIndex()
     {
         $searchModel = new PublishSearch();

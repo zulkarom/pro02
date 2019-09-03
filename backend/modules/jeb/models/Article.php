@@ -158,9 +158,9 @@ class Article extends \yii\db\ActiveRecord
 			
 			[['publish_number'], 'required', 'on' => 'publish_number'],
 			
-            [['title', 'keyword', 'abstract', 'reference', 'pre_evaluate_note', 'recommend_note', 'response_note', 'correction_note', 'correction_file', 'galley_proof_note', 'galley_file', 'finalise_note', 'finalise_file', 'asgn_profrdr_note', 'proofread_note', 'proofread_file', 'postfinalise_file', 'post_finalise_note', 'cameraready_file', 'reject_note', 'publish_number', 'camera_ready_note', 'withdraw_note'], 'string'],
+            [['title', 'keyword', 'abstract', 'reference', 'pre_evaluate_note', 'recommend_note', 'response_note', 'correction_note', 'correction_file', 'galley_proof_note', 'galley_file', 'finalise_note', 'finalise_file', 'asgn_profrdr_note', 'proofread_note', 'proofread_file', 'postfinalise_file', 'post_finalise_note', 'cameraready_file', 'reject_note', 'publish_number', 'camera_ready_note', 'withdraw_note', 'doi_ref'], 'string'],
 			
-            [['journal_id', 'pre_evaluate_by', 'asgn_reviewer_by', 'evaluate_by', 'post_evaluate_by', 'galley_proof_by', 'asgn_profrdr_by', 'post_finalise_by', 'proofread_by', 'camera_ready_by', 'journal_by', 'scope_id', 'associate_editor', 'recommend_by', 'recommend_option', 'response_by', 'assistant_editor', 'finalise_option', 'proof_reader', 'withdraw_by'], 'integer'],
+            [['journal_id', 'pre_evaluate_by', 'asgn_reviewer_by', 'evaluate_by', 'post_evaluate_by', 'galley_proof_by', 'asgn_profrdr_by', 'post_finalise_by', 'proofread_by', 'camera_ready_by', 'journal_by', 'scope_id', 'associate_editor', 'recommend_by', 'recommend_option', 'response_by', 'assistant_editor', 'finalise_option', 'proof_reader', 'withdraw_by', 'page_from', 'page_to'], 'integer'],
 			
             [['draft_at', 'pre_evaluate_at', 'asgn_reviewer_at', 'evaluate_at', 'correction_at', 'post_evaluate_at', 'galley_proof_at', 'finalise_at', 'asgn_profrdr_at', 'post_finalise_at', 'proofread_at', 'camera_ready_at', 'journal_at', 'updated_at', 'review_at', 'recommend_at', 'response_at', 'withdraw_at', 'withdraw_request_at', 'submit_at', 'finalised_at'], 'safe'],
 			
@@ -253,7 +253,8 @@ class Article extends \yii\db\ActiveRecord
 			'finalise_option' => 'Please choose one',
 			'asgn_profrdr_note' => 'Proofread Assignment Note',
 			'postfinalise_file' => 'Post Finalise File',
-			'cameraready_file' => 'Camera Ready PDF File'
+			'cameraready_file' => 'Camera Ready PDF File',
+			'doi_ref' => 'DOI'
         ];
     }
 	

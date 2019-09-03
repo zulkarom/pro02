@@ -66,20 +66,21 @@ $this->params['breadcrumbs'][] = $this->title;
 			
 			
             ['class' => 'yii\grid\ActionColumn',
-				 'contentOptions' => ['style' => 'width: 8.7%'],
+				 'contentOptions' => ['style' => 'width: 20%'],
 				'template' => '{view}',
 				//'visible' => false,
 				'buttons'=>[
 					'view'=>function ($url, $model) {
 								
 								if(Todo::can('jeb-managing-editor')){
+								$btn = '';
 								if($model->journal_id == 0){
-									return '<a href="'.Url::to(['publish/assign/', 'id' => $model->id]).'" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span> ASSIGN</a>';
+									$btn = '<a href="'.Url::to(['publish/assign/', 'id' => $model->id]).'" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span> ASSIGN</a>';
 								}else if($model->journal->status == 0){
-									return '<a href="'.Url::to(['publish/assign/', 'id' => $model->id]).'" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span> CHANGE</a>';
-								}else{
-									return '<a href="'.Url::to(['publish/update/', 'id' => $model->id]).'" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil"></span> UPDATE</a>';
+									$btn =  '<a href="'.Url::to(['publish/assign/', 'id' => $model->id]).'" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span> CHANGE</a>';
 								}
+								
+								return $btn . ' <a href="'.Url::to(['publish/update/', 'id' => $model->id]).'" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil"></span> UPDATE</a>';
 									
 								}
 							

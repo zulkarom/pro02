@@ -125,7 +125,34 @@ $form = ActiveForm::begin(['id' => 'dynamic-form']); ?>
   
  <?= $form->field($model, 'keyword')->textarea(['rows' => 2]) ?>
     <?=$form->field($model, 'reference')->textarea(['rows' => 6]) ?>
-	
+
+
+
+<div class="row">
+<div class="col-md-9">
+
+<?= $form->field($model, 'doi_ref')->textInput() ?>
+
+
+<div class="row">
+<div class="col-md-6"><?= $form->field($model, 'page_from')->textInput() ?></div>
+
+<div class="col-md-6"><?= $form->field($model, 'page_to')->textInput() ?>
+</div>
+
+</div>
+
+  
+   
+   
+   
+   
+</div>
+
+</div>
+ 
+ 
+
 
 	
 
