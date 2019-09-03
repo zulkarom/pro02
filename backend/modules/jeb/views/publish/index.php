@@ -30,7 +30,16 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 			[
 			 'attribute' => 'title',
+			 'format' => 'html',
 			 'contentOptions' => [ 'style' => 'width: 60%;' ],
+			 'value' => function($model){
+				 if($model->journal_id == 0){
+					 return $model->title;
+				 }else{
+					 return $model->citation;
+				 }
+				 
+			 }
 			]
             ,
 

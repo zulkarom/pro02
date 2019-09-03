@@ -31,8 +31,10 @@ $form = ActiveForm::begin(['id' => 'dynamic-form']); ?>
 
 <?= $form->field($model, 'title')->textarea(['rows' => 2]) ?>
 
+<?= $form->field($model, 'title_sc')->textarea(['rows' => 2]) ?>
+
  
-  <?= $form->field($model, 'abstract')->textarea(['rows' => 6]) ?>
+  <?= $form->field($model, 'abstract')->textarea(['rows' => 10]) ?>
   
  <?php DynamicFormWidget::begin([
         'widgetContainer' => 'dynamicform_wrapper',
@@ -128,7 +130,7 @@ $form = ActiveForm::begin(['id' => 'dynamic-form']); ?>
  
  
  <?= $form->field($model, 'reference')->widget(TinyMce::className(), [
-    'options' => ['rows' => 5],
+    'options' => ['rows' => 30],
     'language' => 'en',
     'clientOptions' => [
         'plugins' => [

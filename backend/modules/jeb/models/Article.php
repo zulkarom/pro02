@@ -158,7 +158,7 @@ class Article extends \yii\db\ActiveRecord
 			
 			[['publish_number'], 'required', 'on' => 'publish_number'],
 			
-            [['title', 'keyword', 'abstract', 'reference', 'pre_evaluate_note', 'recommend_note', 'response_note', 'correction_note', 'correction_file', 'galley_proof_note', 'galley_file', 'finalise_note', 'finalise_file', 'asgn_profrdr_note', 'proofread_note', 'proofread_file', 'postfinalise_file', 'post_finalise_note', 'cameraready_file', 'reject_note', 'publish_number', 'camera_ready_note', 'withdraw_note', 'doi_ref'], 'string'],
+            [['title', 'title_sc', 'keyword', 'abstract', 'reference', 'pre_evaluate_note', 'recommend_note', 'response_note', 'correction_note', 'correction_file', 'galley_proof_note', 'galley_file', 'finalise_note', 'finalise_file', 'asgn_profrdr_note', 'proofread_note', 'proofread_file', 'postfinalise_file', 'post_finalise_note', 'cameraready_file', 'reject_note', 'publish_number', 'camera_ready_note', 'withdraw_note', 'doi_ref'], 'string'],
 			
             [['journal_id', 'pre_evaluate_by', 'asgn_reviewer_by', 'evaluate_by', 'post_evaluate_by', 'galley_proof_by', 'asgn_profrdr_by', 'post_finalise_by', 'proofread_by', 'camera_ready_by', 'journal_by', 'scope_id', 'associate_editor', 'recommend_by', 'recommend_option', 'response_by', 'assistant_editor', 'finalise_option', 'proof_reader', 'withdraw_by', 'page_from', 'page_to'], 'integer'],
 			
@@ -220,6 +220,7 @@ class Article extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Title',
+			'title_sc' => 'Title (sentence case)',
             'keyword' => 'Keyword',
             'abstract' => 'Abstract',
             'reference' => 'Reference',
@@ -369,6 +370,85 @@ class Article extends \yii\db\ActiveRecord
 		$journal = $this->journal;
 		
 		return $journal->journalName . ', ' . $journal->journal_name;
+	}
+	
+	public function getYear(){
+		return date('Y', strtotime($this->journal->published_at));
+		
+	}
+	
+	public function getCitation(){
+		$authors = $this->stringAuthors();
+		$year = ' ('.$this->year.').';
+		$title = ' '. ucfirst($this->title_sc) . '.';
+		$journal = ' <em>Journal of Entrepreneurship and Business</em>,';
+		$vol_is = ' ' . $this->journal->volume . '('.$this->journal->issue .'),';
+		$pages = ' ' . $this->page_from . '-' . $this->page_to . '.';
+		$doi = ' ' . $this->doi_ref;
+		
+		return $authors.$year.$title.$journal.$vol_is.$pages.$doi;
+	}
+	
+	public function stringAuthors(){
+		$authors = $this->articleAuthors;
+		$string_au ="";
+		if($authors){
+		$result_au = $authors;
+		$num_au = count($authors);
+		
+		$i=1;
+		foreach($result_au as $row_au){
+			$author = $row_au;
+			if($i==1){$coma="";
+			}else{
+				if($i==$num_au){ // last sekali
+				$coma=", & ";
+				}else{
+				$coma=", ";
+				}
+			}
+			$stringau = $this->stringSingleAuthor($row_au);
+			$lastname = trim(ucfirst($stringau[0]));
+			$stringnotlast = trim(ucfirst($stringau[1]));
+			if($stringnotlast==""){
+				$string_au .= $coma.$lastname.".";
+				
+			}else{
+				$string_au .= $coma.$lastname.", ".$stringnotlast;
+			}
+			
+		$i++;
+		}
+		}
+	return $string_au;
+	}
+	
+	public function stringSingleAuthor($input){
+		//cari ada comma tak
+		$lastname = '';
+		$stringnotlast = '';
+		//$splitcomma = explode(",", $input);
+		//$kira = count($splitcomma);
+		//if($kira==2){
+			
+		$lastname = trim($input->lastname);
+		//echo $splitcomma[1];
+		$split = explode(" ", trim($input->firstname));
+		$total2 = count($split);
+		//echo $total2;
+		$stringnotlast="";
+		for($x=1;$x<=$total2;$x++){
+			//echo $input.">>".$x."---";
+			$notlast = $split[$x-1];
+			if($notlast){
+				$stringnotlast .= substr($notlast, 0, 1).". ";
+			}else{
+				$stringnotlast .="";
+			}
+			
+		}
+			
+		return array($lastname,$stringnotlast);
 	}
 	
 	public function getArticleUrl(){
@@ -536,6 +616,22 @@ class Article extends \yii\db\ActiveRecord
 			}
 		}
 		
+		return $str;
+	}
+	
+	public function authorString($delimiter = false){
+		$list = $this->articleAuthors;
+		$str = '';
+		if($list){
+			$total = count($list);
+			$sep = $delimiter ? $delimiter : '<br />';
+			$i = 1;
+			foreach($list as $au){
+				$sep = $i == $total ? '' : $sep;
+				$str .= $au->firstname . ' ' . $au->lastname . $sep;
+			$i++;
+			}
+		}
 		return $str;
 	}
 	
@@ -718,5 +814,7 @@ class Article extends \yii\db\ActiveRecord
 		}
 
 	}
+	
+	
 
 }
