@@ -41,7 +41,8 @@
 		"2amigos/yii2-chartjs-widget": "~2.0",
 		"glagola/yii2-gauge.js": "@dev",
 		"richardfan1126/yii2-js-register": "*",
-		"djabiev/yii2-autosize-textarea": "dev-master"
+		"djabiev/yii2-autosize-textarea": "dev-master",
+		"2amigos/yii2-tinymce-widget": "~1.1"
 		
 	},
 	"require-dev" : {

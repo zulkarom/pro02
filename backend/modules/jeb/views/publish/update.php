@@ -12,6 +12,7 @@ use backend\modules\jeb\models\Journal;
 use yii\helpers\ArrayHelper;
 use backend\modules\jeb\models\ArticleScope;
 use wbraganca\dynamicform\DynamicFormWidget;
+use dosamigos\tinymce\TinyMce;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Application */
@@ -124,7 +125,24 @@ $form = ActiveForm::begin(['id' => 'dynamic-form']); ?>
     <?php DynamicFormWidget::end(); ?>
   
  <?= $form->field($model, 'keyword')->textarea(['rows' => 2]) ?>
-    <?=$form->field($model, 'reference')->textarea(['rows' => 6]) ?>
+ 
+ 
+ <?= $form->field($model, 'reference')->widget(TinyMce::className(), [
+    'options' => ['rows' => 5],
+    'language' => 'en',
+    'clientOptions' => [
+        'plugins' => [
+            "lists",
+            "code",
+            "paste"
+        ],
+        'menubar' => false,
+        'toolbar' => "undo redo | italic numlist code"
+    ]
+]);?>
+
+
+   
 
 
 
