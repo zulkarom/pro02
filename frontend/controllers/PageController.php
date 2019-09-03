@@ -8,6 +8,7 @@ use yii\filters\AccessControl;
 use frontend\models\ArchiveSearch;
 use backend\modules\jeb\models\Journal;
 use backend\modules\jeb\models\Article;
+use backend\modules\jeb\models\Citation;
 
 
 /**
@@ -105,6 +106,15 @@ class PageController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+	
+	public function actionBibtext($id){
+		
+		if (($model = Article::findOne($id)) == null) {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+		
+		return Citation::bibText($id);
+	}
 	
 	
 }
