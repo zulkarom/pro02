@@ -2,4 +2,4 @@
 deployment:
  tasks:
  - export DEPLOYPATH=/home/jebumkedu/jeb/
- - /bin/cp -R /home/confvall/repositories/pro02 $DEPLOYPATH
+ - /bin/cp -R /home/jebumkedu/repositories/pro02 $DEPLOYPATH
