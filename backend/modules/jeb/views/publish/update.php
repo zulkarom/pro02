@@ -18,7 +18,7 @@ use dosamigos\tinymce\TinyMce;
 /* @var $model common\models\Application */
 
 $this->title = 'Update';
-$this->params['breadcrumbs'][] = ['label' => 'Editing', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Publish', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 if(Todo::can('jeb-managing-editor')){

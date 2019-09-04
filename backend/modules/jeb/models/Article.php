@@ -384,7 +384,7 @@ class Article extends \yii\db\ActiveRecord
 		$journal = ' <em>Journal of Entrepreneurship and Business</em>,';
 		$vol_is = ' ' . $this->journal->volume . '('.$this->journal->issue .'),';
 		$pages = ' ' . $this->page_from . '-' . $this->page_to . '.';
-		$doi = ' ' . $this->doi_ref;
+		$doi = ' https://doi.org/' . $this->doi_ref;
 		
 		return $authors.$year.$title.$journal.$vol_is.$pages.$doi;
 	}
