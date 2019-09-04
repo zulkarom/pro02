@@ -41,7 +41,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/views/myas
 			
 			<p><?=$model->authorString(', ')?></p>
 			
-			<p><i style="font-size:10pt">DOI: https://doi.org/<?=$model->doi_ref?></i></p>
+			<p><i style="font-size:10pt">DOI: https://doi.org/<?=trim($model->doi_ref)?></i></p>
 			
 			
 			
