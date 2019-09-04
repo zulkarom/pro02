@@ -53,6 +53,7 @@ $fp = fopen($name, 'a');
 fwrite($fp, $text);
 fclose($fp);   // don't forget to close file for saving newly added data
 readfile($name);   // readfile takes a filename, not a handler.
+unlink($name);
 	   
 	}
 	
