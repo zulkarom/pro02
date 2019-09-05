@@ -15,8 +15,6 @@ use yii\helpers\Url;
 		<thead>
 		<tr>
 			<th><?=$journal->journalName?>, <?=$journal->journal_name?></th>
-			<th width="10%"><i class="fa  fa-dot-circle-o"></i> Abstract</th>
-			<th width="10%"><i class="fa fa-download"></i> Download</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -28,19 +26,8 @@ use yii\helpers\Url;
 				foreach($article as $ar){
 					echo '<tr>
 						<td><h4><a href="'.Url::to(['page/article', 'id' => $ar->id]).'" class="article-list">'.$ar->title .'</a></h4><i>'.$ar->stringAuthors .'</i>
-						
-						<br /><div class="abs-con" id="abs-'.$ar->id .'" style="display:none; text-align:justify";><br />
-						<b>Abstract: </b>
-						'.Html::encode($ar->abstract) .'<br />
-						<b>Keywords: </b>
-						'.Html::encode($ar->keyword) .'
-						</div>
-						
-						
 						</td>
-						<td><a href="javascript:void(0)"  class="btn-abs" id="show-abs-'.$ar->id .'"><i id="icon-'.$ar->id .'" class="fa  fa-plus-square-o hide"></i> Abstract</a></td>
-						
-						<td><a href="'.Url::to($ar->linkArticle()).'" target="_blank"><i class="fa fa-file-pdf-o"></i> PDF</a></td>
+					
 					</tr>';
 
 				}
