@@ -23,7 +23,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/views/myas
 			
 			<div class="col-lg-12">
 			
-			  <?= GridView::widget([
+			 <div class="table-responsive"> <?= GridView::widget([
         'dataProvider' => $dataProvider,
         //'filterModel' => $searchModel,
         'columns' => [
@@ -50,7 +50,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/views/myas
             ],
 
         ],
-    ]); ?>
+    ]); ?></div>
 			
 			
 			</div>

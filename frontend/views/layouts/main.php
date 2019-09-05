@@ -205,7 +205,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/views/myas
 				<div style="color:#cccccc; font-size:11px" align="center">
 				
 				Faculty of Entrepreneurship and Business, Universiti Malaysia Kelantan <br />
-Locked Bag 36, Pengkalan Chepa, 16100 Kota Bharu, Kelantan, Malaysia<br />
+Pengkalan Chepa, 16100 Kota Bharu, Kelantan, Malaysia<br />
 Tel: +609 771 7251 Fax: +609 771 7252<br />
 Copyright <?=date('Y')?> Universiti Malaysia Kelantan
 				
