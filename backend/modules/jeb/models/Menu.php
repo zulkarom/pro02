@@ -13,6 +13,8 @@ class Menu
 		'icon' => 'list-ul',
 		'url' => '#',
 		'items' => [
+		
+		['label' => 'Current Issue', 'icon' => 'book', 'url' => ['/jeb/current-issue']],
 
 		['label' => 'Submission', 'icon' => 'send', 'url' => ['/jeb/submission'], 'badge' => self::submission(), 
 			'badgeOptions' => ['class' => 'label pull-right bg-red']],
@@ -103,6 +105,33 @@ class Menu
 		return $count > 0 ? $count : '';
 	}
 	
-	
+	public static function adminJeb(){
+		$admin_jeb = [
+                        'label' => 'JEB Admin',
+						'visible' => Todo::can('jeb-administrator'),
+                        'icon' => 'list-ul',
+                        'url' => '#',
+                        'items' => [
+						
+				//['label' => 'Admin Stats', 'icon' => 'dashboard', 'url' => ['/jeb'],],
+				
+				
+				
+				['label' => 'User Setting', 'icon' => 'user', 'url' => ['/jeb/user']],
+				
+				['label' => 'Add External User', 'icon' => 'plus', 'url' => ['/jeb/user/external']],
+				
+				['label' => 'General Setting', 'icon' => 'cog', 'url' => ['/jeb/setting']],
+				
+				['label' => 'Email Template', 'icon' => 'envelope', 'url' => ['/jeb/email-template']],
+
+
+                 ]
+                    ]
+		
+		;
+		
+		return $admin_jeb ;
+	}
 
 }
