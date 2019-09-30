@@ -14,7 +14,7 @@ class Menu
 		'url' => '#',
 		'items' => [
 		
-		['label' => 'Current Issue', 'icon' => 'book', 'url' => ['/jeb']],
+		['label' => 'Current Issue', 'icon' => 'book', 'url' => ['/site']],
 
 		['label' => 'Submission', 'icon' => 'send', 'url' => ['/jeb/submission'], 'badge' => self::submission(), 
 			'badgeOptions' => ['class' => 'label pull-right bg-red']],

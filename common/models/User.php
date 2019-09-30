@@ -38,6 +38,7 @@ class User extends ActiveRecord implements IdentityInterface
 	public $upload_image;
 	
 	public $user_fields;
+	public $user_roles;
 	
 	public $institution;
 	public $country;
@@ -275,6 +276,11 @@ class User extends ActiveRecord implements IdentityInterface
 			}
 		}
 	}
+	
+	public function getJebAuthAssignments()
+    {
+        return $this->hasMany(AuthAssignment::className(), ['user_id' => 'id'])->where(['like', 'item_name', 'jeb-']);
+    }
 
 
 }

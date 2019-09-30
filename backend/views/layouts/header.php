@@ -47,39 +47,18 @@ use yii\helpers\Url;
 
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="<?= Url::to(['/staff/staff/image']) ?>" class="user-image" alt="User Image"/>
-                        <span class="hidden-xs"><?=Yii::$app->user->identity->staff->staff_name?></span>
+                       
+                        <span class="hidden-xs"><?=Yii::$app->user->identity->fullname;?></span>
                     </a>
 					
 					<ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="<?= Url::to(['/staff/staff/image']) ?>" class="img-circle"
-                                 alt="User Image"/>
+                  
 
                             <p>
-                                <?=Yii::$app->user->identity->staff->staff_name?>
-                                <small>Member since ...</small>
-                            </p>
-                        </li>
-                        <!-- Menu Body -->
-                        <li class="user-body">
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Followers</a>
-                            </div>
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Sales</a>
-                            </div>
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Friends</a>
-                            </div>
-                        </li>
-                        <!-- Menu Footer-->
-                        <li class="user-footer">
-                            <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
-                            </div>
-                            <div class="pull-right">
+                                <?=Yii::$app->user->identity->fullname;?>
+                            </p><div align="center">
                                 <?= Html::a(
                                     'Sign out',
                                     ['/site/logout'],
@@ -87,6 +66,7 @@ use yii\helpers\Url;
                                 ) ?>
                             </div>
                         </li>
+            
                     </ul>
                     
                 </li>

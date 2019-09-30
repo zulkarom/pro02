@@ -6,10 +6,12 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
-use common\models\Product;
-use backend\models\Customer;
 use backend\modules\staff\models\Staff;
 use common\models\User;
+use common\models\UserToken;
+use yii\web\ForbiddenHttpException;
+use backend\modules\jeb\models\Journal;
+
 
 /**
  * Site controller
@@ -30,7 +32,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'test'],
+                        'actions' => ['logout', 'index', 'test', 'login-portal',],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -65,12 +67,9 @@ class SiteController extends Controller
     public function actionIndex()
     {
 		
-		return $this->redirect(['jeb/submission']);
-		
-        /* return $this->render('index', [
-
-		'customer' => 33
-		]); */
+        return $this->render('index', [
+			'journal' => Journal::findOne(['status' => 20])
+		]);
     }
 
     /**
@@ -105,19 +104,16 @@ class SiteController extends Controller
 
         $last5 = time() - (60);
 		
-		$db = Staff::find()
-		->where(['staff_id' => $u, 'user_token' => $t])
-		->andWhere('user_token_at > ' . $last5)
+		$db = UserToken::find()
+		->where(['user_id' => $u, 'token' => $t])
+		->andWhere(['>', 'created_at', $last5])
 		->one();
 		
-		$staff = Staff::findOne(['staff_id' => $u]);
-		$id = $staff->user_id;
-		//echo $id;
-		
 		if($db){
+			$id = $db->user_id;
 		   $user = User::findIdentity($id);
 			if(Yii::$app->user->login($user)){
-				return $this->redirect(['jeb/submission']);
+				return $this->redirect(['site/index']);
 			}
 		}else{
 			throw new ForbiddenHttpException;

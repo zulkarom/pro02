@@ -11,12 +11,12 @@ use backend\modules\jeb\models\Menu as JebMenu;
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?= Url::to(['/staff/staff/image']) ?>" class="img-circle" alt="User Image"/>
+                &nbsp;
             </div>
             <div class="pull-left info">
                 <p>
 				<?php 
-		  $str = Yii::$app->user->identity->staff->staff_name;
+		  $str = Yii::$app->user->identity->fullname;
 		  if (strlen($str) > 10)
 		$str = substr($str, 0, 17) . '...';
 		  echo $str;
@@ -43,75 +43,6 @@ use backend\modules\jeb\models\Menu as JebMenu;
 		<?php 
 		
 		
-		
-		
-		
-		$admin_jeb = [
-                        'label' => 'JEB Admin',
-						'visible' => Todo::can('jeb-administrator'),
-                        'icon' => 'list-ul',
-                        'url' => '#',
-                        'items' => [
-						
-				//['label' => 'Admin Stats', 'icon' => 'dashboard', 'url' => ['/jeb'],],
-				
-				
-				
-				['label' => 'User Management', 'icon' => 'user', 'url' => ['/jeb/user']],
-				
-				['label' => 'General Setting', 'icon' => 'cog', 'url' => ['/jeb/setting']],
-				
-				['label' => 'Email Template', 'icon' => 'envelope', 'url' => ['/jeb/email-template']],
-
-
-                 ]
-                    ]
-		
-		;
-		
-		$erpd = [
-                        'label' => 'e-RPD Menus',
-                        'icon' => 'list-ul',
-                        'url' => '#',
-                        'items' => [
-						
-				['label' => 'Dashboard', 'icon' => 'dashboard', 'url' => ['/erpd'],],
-				
-				['label' => 'Research', 'icon' => 'book', 'url' => ['/erpd/research'],],
-				
-				['label' => 'Publication', 'icon' => 'send', 'url' => ['/erpd/publication'],],
-				
-				
-				
-				['label' => 'Membership', 'icon' => 'pencil', 'url' => ['/jeb/submission'],],
-				
-				['label' => 'Award', 'icon' => 'book', 'url' => ['/jeb/submission'],],
-				
-				['label' => 'Consultation', 'icon' => 'book', 'url' => ['/jeb/submission'],],
-				
-				['label' => 'Knowledge Transfer', 'icon' => 'book', 'url' => ['/jeb/submission'],],
-
-
-                 ]
-                    ]
-		
-		;
-		
-		$staff = [
-                        'label' => 'Staff Menus',
-                        'icon' => 'list-ul',
-                        'url' => '#',
-                        'items' => [
-						
-				['label' => 'Dashboard', 'icon' => 'dashboard', 'url' => ['/jeb'],],
-				
-				['label' => 'Staff List', 'icon' => 'send', 'url' => ['/staff/staff'],],
-				
-
-                 ]
-                    ]
-		
-		;
 		$my = [];
 		$focus = [];
 		$admin_focus = [];
@@ -119,40 +50,16 @@ use backend\modules\jeb\models\Menu as JebMenu;
 		switch(Yii::$app->controller->module->id){
 			case 'jeb':
 			$focus = JebMenu::committee();
-			$admin_focus = $admin_jeb;
+			$admin_focus = JebMenu::adminJeb();
 			break;
-			
-			case 'erpd':
-			$focus = $erpd;
-			break;
-			
-			case 'staff':
-			$focus = $staff;
-			break;
+
 			
 			default:
-			$admin_focus = $admin_jeb;
+			$admin_focus = JebMenu::adminJeb();
 			$focus = JebMenu::committee();
 		}
 		
 		
-		$modules = [
-                        'label' => 'Modules',
-                        'icon' => 'th-large',
-                        'url' => '#',
-                        'items' => [
-                            
-							['label' => 'e-RPD', 'icon' => 'file', 'url' => ['/erpd'],],
-							
-							['label' => 'e-SIAP', 'icon' => 'file', 'url' => ['question-cat/index'],],
-							
-							['label' => 'JEB', 'icon' => 'file', 'url' => ['/jeb'],],
-							
-							['label' => 'STAFF', 'icon' => 'database', 'url' => ['/staff'],],
-							
-
-                        ],
-                    ];
 		
 		?>
 
@@ -166,40 +73,9 @@ use backend\modules\jeb\models\Menu as JebMenu;
 					$focus,
 					$admin_focus,
 					
-					[
-                        'label' => 'User Management',
-                        'icon' => 'lock',
-						'visible' => Todo::can('sysadmin'),
-                        'url' => '#',
-                        'items' => [
-							
-							['label' => 'New External User', 'icon' => 'plus', 'url' => ['/user/create'],],
-						
-							['label' => 'User Role', 'icon' => 'user', 'url' => ['/user/assignment'],],
-							
-							//['label' => 'User Signup', 'icon' => 'plus', 'url' => ['/admin/user/signup'],],
-							
-							
-							/* ['label' => 'User Assignment', 'icon' => 'user', 'url' => ['/admin'],], */
-						
-                            ['label' => 'Role List', 'icon' => 'user', 'url' => ['/admin/role'],],
-							
-							['label' => 'Route List', 'icon' => 'user', 'url' => ['/admin/route'],],
-							
-	
-							
-
-                        ],
-                    ],
 					
-					//['label' => 'Change Password', 'icon' => 'lock', 'url' => ['/user/change-password']],
 					
 					['label' => 'Log Out', 'icon' => 'arrow-left', 'url' => ['/site/logout'], 'template' => '<a href="{url}" data-method="post">{icon} {label}</a>']
-					
-
-
-
-					
 
 
                 ],
