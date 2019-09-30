@@ -3,7 +3,6 @@
 namespace backend\modules\jeb\models;
 
 use Yii;
-use common\models\workflows\ArticleWorkflow;
 
 class ArticleStatus
 {
@@ -39,16 +38,6 @@ class ArticleStatus
 		'ArticleWorkflow/ma-finalise', 
 		'ArticleWorkflow/oa-camera-ready', 
 		];
-	}
-	
-	public static function getAllStatusesArray(){
-		$cl = new ArticleWorkflow;
-		$status = $cl->getDefinition();
-		$array = array();
-		foreach($status['status'] as $key=>$s){
-			$array['ArticleWorkflow/' . $key] = $s['label'];
-		}
-		return $array;
 	}
 
 }
