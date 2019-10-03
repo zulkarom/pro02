@@ -1,4 +1,7 @@
 <?php 
+
+use yii\helpers\Url;
+
 $this->title = 'JEB Current Issue';
 ?>
 			
