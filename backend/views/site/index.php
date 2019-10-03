@@ -18,7 +18,7 @@ if($journal){
 </div>
 
 <div align="center">
-<a href="" class="btn btn-primary" target="_blank">JEB PREVIOUS ISSUES</a>
+<a href="<?=Url::to(['../page/archive'])?>" class="btn btn-primary" target="_blank">JEB PREVIOUS ISSUES</a>
 </div>
 
 
