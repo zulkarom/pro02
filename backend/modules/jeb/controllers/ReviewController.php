@@ -108,9 +108,10 @@ class ReviewController extends \yii\web\Controller
 	$model->scenario = WorkflowScenario::enterStatus('ca-assign-reviewer');
 	$reject_model->scenario = WorkflowScenario::enterStatus('ra-reject');
 		
-		if ($model->load(Yii::$app->request->post())) {
+		if ($model->load(Yii::$app->request->post()) and $reject_model->load(Yii::$app->request->post())) {
 			$wfaction = Yii::$app->request->post('wfaction');
 			if($wfaction == 'assign-associate'){
+				
 				return $this->assignAssociate($model);
 			}else if($wfaction == 'reject'){
 				return $this->reject($reject_model);
