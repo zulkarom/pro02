@@ -81,6 +81,11 @@ table.detail-view th {
 				}
 			],
 			[
+				'attribute' => 'correction_note',
+			
+			],
+			
+			[
 				'attribute' => 'correction_file',
 				'format' => 'raw',
 				'value' => function($model){
