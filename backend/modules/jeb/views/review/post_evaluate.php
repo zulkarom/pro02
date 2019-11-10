@@ -84,7 +84,7 @@ table.detail-view th {
 				'attribute' => 'correction_file',
 				'format' => 'raw',
 				'value' => function($model){
-					return '<a href="'. Url::to(['review/download', 'attr' => 'correction', 'id' => $model->id]) .'" target="_blank"><i class="fa fa-download"></i> FILE</a>';
+					return '<a href="'. Url::to(['review/download-review-file', 'attr' => 'correction', 'id' => $model->id]) .'" target="_blank"><i class="fa fa-download"></i> FILE</a>';
 				}
 			],
 			
