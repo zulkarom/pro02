@@ -593,6 +593,9 @@ class ReviewController extends \yii\web\Controller
 					$model->sendEmail();
 					Yii::$app->session->addFlash('success', "The response has been successfully sent.");
 					return $this->redirect('index');
+				}else{
+					$model->flashError();
+					return $this->redirect(['response', 'id' => $id]);
 				}
 			}
 			
