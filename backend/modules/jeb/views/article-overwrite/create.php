@@ -5,15 +5,15 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\modules\journal\models\ArticleOverwrite */
 
-$this->title = 'Create New';
+$this->title = 'Create New Article';
 $this->params['breadcrumbs'][] = ['label' => 'Article Overwrites', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="article-overwrite-create">
-* to upload file, save first...
+<div class="article-overwrite-update">
+
+
     <?= $this->render('_form', [
-        'model' => $model,
-		'authors' => $authors
+        'model' => $model
     ]) ?>
 
 </div>

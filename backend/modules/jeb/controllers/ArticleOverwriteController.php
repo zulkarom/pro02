@@ -79,6 +79,25 @@ class ArticleOverwriteController extends Controller
             'model' => $model,
         ]);
     }
+	
+	public function actionCreate()
+    {
+        $model = new ArticleOverwrite;
+	
+
+        if ($model->load(Yii::$app->request->post())) {
+			$model->scope_id = 1;
+			if($model->save()){
+				Yii::$app->session->addFlash('success', "Data Updated");
+				
+			}
+			
+        }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+    }
 
     /**
      * Deletes an existing ArticleOverwrite model.

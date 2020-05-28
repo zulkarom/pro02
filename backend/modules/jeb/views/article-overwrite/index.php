@@ -12,6 +12,8 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-overwrite-index">
 
+<div class="form-group"><?=Html::a('New Article', ['create'], ['class' => 'btn btn-success'])?></div>
+
 	<div class="box">
 <div class="box-header"></div>
 <div class="box-body">
