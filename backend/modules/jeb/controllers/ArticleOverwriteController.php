@@ -87,6 +87,7 @@ class ArticleOverwriteController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
 			$model->scope_id = 1;
+			$model->manuscript_no = time();
 			if($model->save()){
 				Yii::$app->session->addFlash('success', "Data Updated");
 				
