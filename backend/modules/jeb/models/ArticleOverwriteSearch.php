@@ -18,9 +18,7 @@ class ArticleOverwriteSearch extends ArticleOverwrite
     {
         return [
 			
-			 [['title'], 'string'],
-			 
-			
+			 [['title'], 'string'],			
 			
         ];
     }
@@ -64,9 +62,9 @@ class ArticleOverwriteSearch extends ArticleOverwrite
             'id' => $this->id,
             
         ]);
+		
+		$query->andFilterWhere(['like', 'title', $this->title]);
 
-        $query->andFilterWhere(['like', 'manuscript_no', $this->manuscript_no]);
-          
 
         return $dataProvider;
     }
