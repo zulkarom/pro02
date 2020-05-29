@@ -17,7 +17,7 @@ class AppAsset extends AssetBundle
     public $js = [
     ];
    public $depends = [
-		'djabiev\yii\assets\AutosizeTextareaAsset',
+		//'djabiev\yii\assets\AutosizeTextareaAsset',
         //'yii\web\YiiAsset',
         //'yii\bootstrap\BootstrapAsset',
     ];
