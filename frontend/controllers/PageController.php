@@ -9,7 +9,7 @@ use frontend\models\ArchiveSearch;
 use backend\modules\jeb\models\Journal;
 use backend\modules\jeb\models\Article;
 use backend\modules\jeb\models\Citation;
-
+use yii\web\NotFoundHttpException;
 
 /**
  * Page controller
@@ -91,6 +91,13 @@ class PageController extends Controller
         ]);
 	}
 	
+	public function actionViewArticle($volume, $issue, $publish_number){
+		$model = $this->searchArticle($volume, $issue, $publish_number);
+		return $this->render('article', [
+            'model' => $model,
+        ]);
+	}
+	
 	/**
      * Finds the Article model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
@@ -115,6 +122,18 @@ class PageController extends Controller
 		
 		return Citation::bibText($id);
 	}
+	
+	protected function searchArticle($volume, $issue, $publish_number)
+    {
+        if (($model = Article::find()
+        ->innerJoin('jeb_journal', 'jeb_journal.id = jeb_article.journal_id')
+         ->where(['jeb_journal.volume' => $volume, 'jeb_journal.issue' => $issue, 'jeb_article.publish_number' => $publish_number])
+        ->one()) !== null) {
+            return $model;
+        }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
+    }
 	
 	
 }

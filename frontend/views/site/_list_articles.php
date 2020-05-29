@@ -25,7 +25,7 @@ use yii\helpers\Url;
 				
 				foreach($article as $ar){
 					echo '<tr>
-						<td><h4><a href="'.Url::to(['page/article', 'id' => $ar->id]).'" class="article-list">'.$ar->title .'</a></h4><i>'.$ar->stringAuthors .'</i>
+						<td><h4><a href="'.Url::to(['page/view-article', 'volume' => $ar->journal->volume, 'issue' => $ar->journal->issue, 'publish_number' => $ar->publish_number]).'" class="article-list">'.$ar->title .'</a></h4><i>'.$ar->stringAuthors .'</i>
 						</td>
 					
 					</tr>';
