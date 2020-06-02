@@ -106,6 +106,8 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/views/myas
 
 <a href="http://www.mycite.my/" target="_blank"><img src="<?=$directoryAsset?>/img/mycite.gif" /></a> 
 
+<a href="https://theadl.com/journal.php?search=Journal%20of%20Entrepreneurship%20and%20Business" target="_blank"><img src="<?=$directoryAsset?>/img/adl.png" /></a> 
+
 
 </div>
 <div class="col-md-3">
