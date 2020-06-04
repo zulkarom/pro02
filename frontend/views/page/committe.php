@@ -3,8 +3,6 @@ $this->title = 'EDITORIAL COMMITTEES';
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/views/myasset');
 ?>
 
-<img src="<?=$directoryAsset?>/img/background-simple.jpg" width="100%" />
-
 <div class="block-content">
 		<div class="container">
 		

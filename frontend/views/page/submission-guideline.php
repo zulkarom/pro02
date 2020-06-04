@@ -5,7 +5,6 @@ $this->title = 'SUBMISSION GUIDELINE';
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/views/myasset');
 ?>
 
-<img src="<?=$directoryAsset?>/img/background-simple.jpg" width="100%" />
 <div class="block-content">
 		<div class="container">
 		
@@ -19,9 +18,13 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/views/myas
 			
 			<div class="col-lg-12">
 			<br />
-			<p>The Journal welcomes articles, research communications, and book reviews that focus on the dynamics of entrepreneurship and business.</p>
+			
+<p>Please <a href="../user/login">log in</a> to submit a manuscript, or <a href="../user/register">register</a> if you have not an account with the JEB journal.</p>
 
-<p>&nbsp;</p>
+
+<p>The Journal welcomes articles, research communications, and book reviews that focus on the dynamics of entrepreneurship and business.</p>
+
+
 
 <p>Each manuscript should contain:</p>
 

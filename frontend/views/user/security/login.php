@@ -15,9 +15,10 @@ use yii\helpers\Html;
 //use yii\widgets\ActiveForm;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Url;
+use backend\modules\jeb\models\Journal;
 
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/views/myasset');
-
+$journal = Journal::findOne(['status' => 20]);
 /**
  * @var yii\web\View $this
  * @var dektrium\user\models\LoginForm $model
@@ -39,27 +40,33 @@ $fieldOptions2 = [
 
 <?= $this->render('/_alert', ['module' => Yii::$app->getModule('user')]) ?>
 
-
-                
-	<img src="<?=$directoryAsset?>/img/background-simple.jpg" width="100%" />			
-
 			
 				<div class="block-content">
 
 		<div class="container">
-			<div class="row">
-				<div class="col">
-					<h2 class="section_title text-center">LOGIN PAGE </h2>
-				</div>
-
-			</div>
+	
 			<br /><div style="padding-top:0px">
 					<div class="row">
-					<div class="col-sm-3"></div>
-						<div class="col-sm-6">
+					<div class="col-md-3">
+					
+					
+					<div class="form-group">
+<img src="<?=$directoryAsset?>/img/cover-page.jpg" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
+			</div>
+			
+			<div><h4>Current Issue</h4>
+			
+<p><?=$journal->journalName?><br /><?=$journal->journal_name?></p>
+</div>
+					
+					
+					</div>
+						<div class="col-md-4">
+						<h2 class="section_title">LOGIN PAGE </h2>
 														<div class="section">
 										
-														
+														<p>Please <a href="../user/login">log in</a> to submit a manuscript, or <a href="../user/register">register</a> if you have not an account with the JEB journal.</p>
+														<br />
 														
 														
 							<?php $form = ActiveForm::begin([
@@ -139,15 +146,15 @@ $fieldOptions1 = [
          <div class="panel-footer clearfix p10 ph15">
         
         <?php if ($module->enableRegistration): ?>
-            <p class="text-center">
-                <?= Html::a('SIGN UP / REGISTRATION', ['/user/registration/register'], ['class' => 'field-label text-muted mb10']) ?>
+            <p>
+                <?= Html::a('SIGN UP / REGISTRATION', ['/user/registration/register'], ['class' => 'field-label']) ?>
             </p>
         <?php endif ?>
 		
 		<?php if ($module->enablePasswordRecovery): ?>
-            <p class="text-center">
+            <p>
                 <?= Html::a('FORGOT PASSWORD',
-                           ['/user/recovery/request'],['class' => 'field-label text-muted mb10', 'tabindex' => '5']
+                           ['/user/recovery/request'],['class' => 'field-label', 'tabindex' => '5']
                                 ) ?>
             </p>
         <?php endif ?>

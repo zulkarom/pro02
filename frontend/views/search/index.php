@@ -8,34 +8,45 @@ $this->title = 'SEARCH RESULT';
 
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/views/myasset');
 ?>
-<img src="<?=$directoryAsset?>/img/background-simple.jpg" width="100%" />
 
-<?php $form = ActiveForm::begin([
+
+<div style="padding-top:25px; padding-bottom:5px; background-color:#f8f8f8">
+	<div class="container">
+		<div class="form-group">
+		
+		
+		
+		
+		<?php $form = ActiveForm::begin([
         'action' => ['search/index'],
         'method' => 'get',
     ]); ?>
 		<div class="row">
-		<div class="col-md-2"></div>
-			<div class="col-md-6">
+		
+			<div class="col-md-8">
 			<div class="form-group">
 			
 			 <?= $form->field($searchModel, 'search_article')->textInput(['class' => 'form-control', 'style' => 'height:45px', 'placeholder' => 'Search articles in title, abstract or keywords...'])->label(false); ?>
 			 
 			</div>
 			</div>
-			<div class="col-md-2">
+			<div class="col-md-4">
 			<div class="form-group">
 			
 			
 		
 			
-			 <?= Html::submitButton('<i class="fa fa-search"></i> Search', ['class' => 'btn btn-primary', 'style' => 'height:45px']) ?>
+			 <?= Html::submitButton('<i class="fa fa-search"></i> Search', ['class' => 'btn btn-primary', 'style' => 'height:40px']) ?>  <?= Html::a('Submit a paper', ['submission/create'], ['class' => 'btn btn-danger', 'style' => 'height:40px']) ?>
 			
 			
 			</div>
 			</div>
 		</div>
 		 <?php ActiveForm::end(); ?>
+</div>
+	</div>
+	
+</div>
 
 <div class="block-content">
 		<div class="container">

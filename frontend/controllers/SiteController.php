@@ -8,18 +8,25 @@ use yii\web\NotFoundHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\web\ForbiddenHttpException;
+
 use common\models\LoginForm;
 use common\models\User;
 use common\models\UserToken;
+use common\models\Upload;
+
+use backend\modules\jeb\models\Journal;
+use backend\modules\jeb\models\Article;
+
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\SearchArticle;
-use yii\web\ForbiddenHttpException;
 use frontend\models\Page;
-use backend\modules\jeb\models\Article;
-use common\models\Upload;
+
+
+
 
 
 /**
@@ -80,9 +87,16 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+		
 		if(Yii::$app->user->isGuest){
+			
+			$journal = Journal::findOne(['status' => 20]);
+			
 			$model = new SearchArticle();
-			return $this->render('index', ['model' => $model]);
+			return $this->render('index', [
+				'model' => $model,
+				'journal' => $journal
+				]);
 		}else{
 			return $this->render('member', [
 			]);

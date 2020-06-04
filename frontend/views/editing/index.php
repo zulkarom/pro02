@@ -12,8 +12,6 @@ $this->title = 'Editing';
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
-<?=$this->render('../site/_img_user')?>
-
 
 <div class="block-content">
 

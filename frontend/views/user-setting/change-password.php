@@ -10,9 +10,6 @@ $this->title = 'Change Password';
 ?>
 
 
-<?=$this->render('../site/_img_user')?>
-
-
 <div class="block-content">
 
 

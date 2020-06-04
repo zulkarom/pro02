@@ -8,8 +8,6 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/views/myas
 ?>
 
 
-<?=$this->render('_img_user')?>
-
 
 <div class="block-content">
 

@@ -83,14 +83,18 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/views/myas
 		</div>
 
 		<!-- Header Content -->
+		
+		<img src="<?=$directoryAsset?>/img/top-banner.png" width="100%" />
+	
+		
 		<div class="header_container">
 			<div class="container">
 				<div class="row">
 					<div class="col">
 						<div class="header_content d-flex flex-row align-items-center justify-content-start">
 							<div class="logo_container mr-auto">
-								
-							<div class="logo_text" style="color:#000000">J E B</div>
+								<a href="<?=Url::to(['site/index'])?>">
+							<div class="logo_text" style="color:#000000">J E B</div></a>
 								
 							</div>
 				<?php 

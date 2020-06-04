@@ -368,8 +368,10 @@ class Article extends \yii\db\ActiveRecord
 	
 	public function getJournalInfo(){
 		$journal = $this->journal;
+		if($this->journal){
+			return $journal->journalName . ', ' . $journal->journal_name;
+		}
 		
-		return $journal->journalName . ', ' . $journal->journal_name;
 	}
 	
 	public function getYear(){
@@ -468,8 +470,8 @@ class Article extends \yii\db\ActiveRecord
 	
 	
 	public function linkArticle(){
-		
-		$volume = $this->journal->volume; 
+		if($this->journal){
+			$volume = $this->journal->volume; 
 		$len = strlen((string)$volume);
 		if($len == 1){
 			$volume = '0' . $volume;
@@ -485,6 +487,8 @@ class Article extends \yii\db\ActiveRecord
 		
 		
 		return ['site/download', 'volume' => $volume, 'issue' => $issue, 'publish_number' => $this->publish_number];
+		}
+		
 
 	}
 	

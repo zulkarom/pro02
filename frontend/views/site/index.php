@@ -2,8 +2,8 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
-use backend\modules\jeb\models\Journal;
 use yii\widgets\ActiveForm;
+
 
 
 $this->title= 'JEB :: JOURNAL OF ENTREPRENEURSHIP AND BUSINESS';
@@ -12,11 +12,11 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/views/myas
 ?>
 	<!-- Home -->
 
-	<div>
-		<div></div>
+<div style="padding-top:25px; padding-bottom:5px; background-color:#f8f8f8">
+	<div class="container">
 		<div class="form-group">
-		<img src="<?=$directoryAsset?>/img/background-simple.jpg" width="100%" />
-		</div>
+		
+		
 		
 		
 		<?php $form = ActiveForm::begin([
@@ -24,48 +24,56 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/views/myas
         'method' => 'get',
     ]); ?>
 		<div class="row">
-		<div class="col-md-2"></div>
-			<div class="col-md-6">
+		
+			<div class="col-md-8">
 			<div class="form-group">
 			
 			 <?= $form->field($model, 'search_article')->textInput(['class' => 'form-control', 'style' => 'height:45px', 'placeholder' => 'Search articles in title, abstract or keywords...'])->label(false); ?>
 			 
 			</div>
 			</div>
-			<div class="col-md-2">
+			<div class="col-md-4">
 			<div class="form-group">
 			
 			
 		
 			
-			 <?= Html::submitButton('<i class="fa fa-search"></i> Search', ['class' => 'btn btn-primary', 'style' => 'height:45px']) ?>
+			 <?= Html::submitButton('<i class="fa fa-search"></i> Search', ['class' => 'btn btn-primary', 'style' => 'height:40px']) ?>  <?= Html::a('Submit a paper', ['submission/create'], ['class' => 'btn btn-danger', 'style' => 'height:40px']) ?>
 			
 			
 			</div>
 			</div>
 		</div>
 		 <?php ActiveForm::end(); ?>
-
+</div>
 	</div>
 	
+</div>
 
-	<!-- Language -->
-
-	
-
-	<!-- Courses -->
 
 	<div class="courses">
 		<div class="container">
 		
 			<div class="row">
 			
-			<div class="col-lg-6">
+			<div class="col-lg-2">
+			<div class="form-group">
+<img src="<?=$directoryAsset?>/img/cover-page.jpg" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
+			</div>
+			
+			<div align="center"><h4>Current Issue</h4>
+			
+<p><?=$journal->journalName?> <?=$journal->journal_name?></p>
+</div>
+			
+			</div>
+			
+			<div class="col-lg-5">
 			<h3>AIM OF JOURNAL</h3>
 			
-			<p>The Journal of Entrepreneurship and Business (eISSN : 2289-8298) or JEB is a double-blind, peer-reviewed and open-access journal, published in June and December annually. JEB addresses the fundamental issues of entrepreneurship and business and publishes original quantitative or qualitative articles on all aspects of entrepreneurship and business in local and international contexts. The primary audiences for this journal are scholars, academicians, policy makers and practitioners whose interest is in entrepreneurship and business discourses, practices and activities. </p></div>
+			<p style="text-align:justify">The Journal of Entrepreneurship and Business (eISSN : 2289-8298) or JEB is a double-blind, peer-reviewed and open-access journal, published in June and December annually. JEB addresses the fundamental issues of entrepreneurship and business and publishes original quantitative or qualitative articles on all aspects of entrepreneurship and business in local and international contexts. The primary audiences for this journal are scholars, academicians, policy makers and practitioners whose interest is in entrepreneurship and business discourses, practices and activities. </p></div>
 				
-				<div class="col-lg-6">
+				<div class="col-lg-4">
 				<h3>SCOPE</h3>
 				<p>JEB welcomes and publishes research in the field of :
 <ul>
@@ -150,7 +158,7 @@ This work is licensed under a <a href="https://creativecommons.org/licenses/by/3
 		<br />
 			<?php 
 			
-			$journal = Journal::findOne(['status' => 20]);
+			
 			
 			if($journal){
 				echo $this->render('_list_articles', [
