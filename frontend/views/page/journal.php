@@ -6,7 +6,6 @@ use yii\grid\GridView;
 $this->title = $journal-> journalName . ' ' . $journal->journal_name ;
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@frontend/views/myasset');
 ?>
-<img src="<?=$directoryAsset?>/img/background-simple.jpg" width="100%" />
 <div class="block-content">
 		<div class="container">
 		
